@@ -17,7 +17,8 @@ export class TaskFormComponent {
   task: Task = {
     title: '',
     description: '',
-    assignee: ''
+    assignee: '',
+    dueDate: ''
   };
 
   constructor(private taskService: TaskService) {}
@@ -26,6 +27,7 @@ export class TaskFormComponent {
     this.taskService.createTask(this.task)
       .subscribe(() => {
         alert('Tarea creada');
+        this.task = { title: '', description: '', assignee: '', dueDate: '' };
         location.reload();
       });
   }
