@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 
 export class TaskFormComponent {
+  @Output() taskCreated = new EventEmitter<void>();
 
   task: Task = {
     title: '',
@@ -31,6 +32,7 @@ export class TaskFormComponent {
       .subscribe(() => {
         alert('Tarea creada');
         this.task = { title: '', description: '', assignee: '', dueDate: '', status: 'DONE'};
+        this.taskCreated.emit();
       });
   }
 }
