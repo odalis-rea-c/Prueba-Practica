@@ -45,3 +45,44 @@
 .material-icons {
   font-size: 20px;
 }
+/* Estilo base del botón */
+.btn-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+/* Colores dinámicos según el estado */
+.todo {
+  background-color: #e2e8f0; /* Gris */
+  color: #475569;
+}
+
+.progress {
+  background-color: #dbeafe; /* Azul claro */
+  color: #2563eb;
+}
+
+.done {
+  background-color: #dcfce7; /* Verde claro */
+  color: #166534;
+}
+
+/* Efecto Hover */
+.btn-status:hover {
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-status .material-icons {
+  font-size: 18px;
+}

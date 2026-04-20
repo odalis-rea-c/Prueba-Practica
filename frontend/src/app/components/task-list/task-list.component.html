@@ -14,11 +14,16 @@
     </b>
   </p>
 
-  <button (click)="changeStatus(task)">
-    Cambiar Estado
+  <button (click)="changeStatus(task)" class="btn-status" [ngClass]="{
+    'todo': task.status === 'TODO',
+    'progress': task.status === 'IN_PROGRESS',
+    'done': task.status === 'DONE'
+  }">
+    <span class="material-icons">sync</span>
+    {{ task.status.replace('_', ' ') }}
   </button>
 
   <button (click)="deleteTask(task.id!)" class="btn-delete">
-  <span class="material-icons">delete</span>
+    <span class="material-icons">delete</span>
   </button>
 </div>
