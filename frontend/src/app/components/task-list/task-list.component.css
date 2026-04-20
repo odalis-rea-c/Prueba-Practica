@@ -1,3 +1,9 @@
+h2 {
+  margin: 20px; /* 20px de espacio en los 4 lados */
+  color: #1e293b;
+  font-weight: 600;
+}
+
 .task-card {
   background: white;
   padding: 1.5rem;
