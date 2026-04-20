@@ -5,4 +5,12 @@
 <input [(ngModel)]="task.assignee" placeholder="Asignado"><br>
 <input [(ngModel)]="task.dueDate" type="date"><br>
 
+<select [(ngModel)]="task.status">
+  <option value="TODO">TODO</option>
+  <option value="IN_PROGRESS">EN PROCESO</option>
+  <option value="DONE">COMPLETADO</option>
+</select>
+
+<br>
+
 <button (click)="createTask()">Crear</button>

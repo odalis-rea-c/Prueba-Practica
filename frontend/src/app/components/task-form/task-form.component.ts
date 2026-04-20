@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task';
 import { CommonModule } from '@angular/common';
@@ -12,13 +12,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.css'
 })
+
+
 export class TaskFormComponent {
 
   task: Task = {
     title: '',
     description: '',
     assignee: '',
-    dueDate: ''
+    dueDate: '',
+    status: 'DONE'
   };
 
   constructor(private taskService: TaskService) {}
@@ -27,8 +30,7 @@ export class TaskFormComponent {
     this.taskService.createTask(this.task)
       .subscribe(() => {
         alert('Tarea creada');
-        this.task = { title: '', description: '', assignee: '', dueDate: '' };
-        location.reload();
+        this.task = { title: '', description: '', assignee: '', dueDate: '', status: 'DONE'};
       });
   }
 }

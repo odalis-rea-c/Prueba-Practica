@@ -22,6 +22,7 @@ def get_tasks(status: str = None, db: Session = Depends(get_db)):
 
 @router.post("/", response_model=TaskResponse, status_code=201)
 def create_task(task: TaskCreate, db: Session = Depends(get_db)):
+    print(task)
     new_task = Task(**task.dict())
     db.add(new_task)
     db.commit()

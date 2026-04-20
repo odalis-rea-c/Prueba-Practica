@@ -3,10 +3,18 @@
 <div *ngFor="let task of tasks" style="border:1px solid #ccc; padding:10px; margin:6px;">
   <h3>{{task.title}}</h3>
   <p>{{task.description}}</p>
-  <p><b>Asignado:</b> {{task.assignee}}</p>
-  <p><b>Estado:</b> {{task.status}}</p>
+  <p><b>👤 Asignado:</b> {{task.assignee}}</p>
+  <p>
+    Estado:
+    <b [ngStyle]="{
+      color: task.status === 'DONE' ? 'green' :
+             task.status === 'IN_PROGRESS' ? 'orange' : 'red'
+    }">
+      {{task.status}}
+    </b>
+  </p>
 
   <button (click)="editTask(task)">Editar</button>
-  <button (click)="changeStatus(task)">Cambiar estado</button>
   <button (click)="deleteTask(task.id!)">Eliminar</button>
+
 </div>
