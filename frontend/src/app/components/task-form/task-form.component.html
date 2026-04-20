@@ -1,0 +1,7 @@
+<h2>Nueva tarea</h2>
+
+<input [(ngModel)]="task.title" placeholder="Título"><br>
+<input [(ngModel)]="task.description" placeholder="Descripción"><br>
+<input [(ngModel)]="task.assignee" placeholder="Asignado"><br>
+
+<button (click)="createTask()">Crear</button>

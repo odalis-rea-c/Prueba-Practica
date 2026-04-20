@@ -1,1 +1,11 @@
-<p>task-list works!</p>
+<h2>Lista de tareas</h2>
+
+<div *ngFor="let task of tasks" style="border:1px solid #ccc; padding:10px; margin:10px;">
+  <h3>{{task.title}}</h3>
+  <p>{{task.description}}</p>
+  <p><b>Asignado:</b> {{task.assignee}}</p>
+  <p><b>Estado:</b> {{task.status}}</p>
+
+  <button (click)="changeStatus(task)">Cambiar estado</button>
+  <button (click)="deleteTask(task.id!)">Eliminar</button>
+</div>
