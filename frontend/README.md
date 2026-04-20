@@ -42,4 +42,4 @@ Para obtener más información sobre el uso de Angular CLI, incluyendo referenci
 
 
 ## Uso de Asistencia de IA (AI_LOG.md)
-Durante el desarrollo de esta prueba técnica, se utilizó asistencia de Inteligencia Artificial para optimizar tiempos de entrega y resolver problemas específicos de integración.
+Durante el desarrollo de esta prueba técnica, se usó asistencia de Inteligencia Artificial para refactorizar tiempos de entrega y resolver problemas específicos de integración.
