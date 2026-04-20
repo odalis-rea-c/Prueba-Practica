@@ -23,7 +23,7 @@ export class TaskListComponent implements OnInit {
   loadTasks() {
     this.taskService.getTasks().subscribe({
       next: (data) => {
-        console.log('DATA FRONTEND:', data); 
+        console.log('DATA FRONTEND:', data);
         this.tasks = data;
       },
       error: (err) => {
@@ -32,29 +32,19 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  editTask(task: any) {
-    const newTitle = prompt('Nuevo título:', task.title);
 
-    if (newTitle) {
-      const updated = { ...task, title: newTitle };
+changeStatus(task: Task) {
+  const nextStatus =
+    task.status === 'TODO'
+      ? 'IN_PROGRESS'
+      : task.status === 'IN_PROGRESS'
+        ? 'DONE'
+        : 'TODO';
 
-      this.taskService.updateTask(task.id, updated).subscribe(() => {
-        this.loadTasks();
-      });
-    }
-  }
-  changeStatus(task: Task) {
-    const nextStatus =
-      task.status === 'TODO'
-        ? 'IN_PROGRESS'
-        : task.status === 'IN_PROGRESS'
-          ? 'DONE'
-          : 'TODO';
-
-    this.taskService
-      .updateStatus(task.id!, nextStatus)
-      .subscribe(() => this.loadTasks());
-  }
+  this.taskService
+    .updateStatus(task.id!, nextStatus) // Asegúrate que aquí diga updateStatus
+    .subscribe(() => this.loadTasks());
+}
 
   deleteTask(id: number) {
     this.taskService.deleteTask(id).subscribe(() => this.loadTasks());

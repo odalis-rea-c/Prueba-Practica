@@ -4,11 +4,10 @@ import { Observable } from 'rxjs';
 import { Task } from '../models/task';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
-
-  private apiUrl = 'http://127.0.0.1:8000/api/tasks/';
+  private apiUrl = 'http://127.0.0.1:8000/api/tasks';
 
   constructor(private http: HttpClient) {}
 
@@ -20,14 +19,11 @@ export class TaskService {
     return this.http.post<Task>(this.apiUrl, task);
   }
 
-  updateTask(id: number, task: any) {
-  return this.http.put(`${this.apiUrl}/${id}`, task);
-}
   updateStatus(id: number, status: string): Observable<Task> {
-    return this.http.patch<Task>(`${this.apiUrl}/${id}/status`, { status });
+    return this.http.put<Task>(`${this.apiUrl}/${id}`, { status: status });
   }
 
-  deleteTask(id: number) {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  deleteTask(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

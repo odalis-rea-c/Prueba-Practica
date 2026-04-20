@@ -23,4 +23,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(tasks.router, prefix="/api/tasks")
+
+app.include_router(tasks.router, prefix="/api/tasks", tags=["tasks"])

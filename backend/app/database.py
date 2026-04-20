@@ -3,6 +3,15 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 DATABASE_URL = "postgresql://postgres:123@localhost:5432/task_manager"
 
+# app/database.py
+
+def get_db():  # <--- Ensure this name matches exactly
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+        
 engine = create_engine(
     DATABASE_URL,
     echo=True  # muestra consultas en consola (útil para debug)
