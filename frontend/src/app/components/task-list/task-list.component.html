@@ -3,7 +3,7 @@
 <div *ngFor="let task of tasks" style="border:1px solid #ccc; padding:10px; margin:6px;">
   <h3>{{task.title}}</h3>
   <p>{{task.description}}</p>
-  <p><b>👤 Asignado:</b> {{task.assignee}}</p>
+  <p><b>👤 Asignado/a a:</b> {{task.assignee}}</p>
   <p>
     Estado:
     <b [ngStyle]="{
