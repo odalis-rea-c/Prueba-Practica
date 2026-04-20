@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-list',
-  imports: [],
+   standalone: true,
+  imports: [CommonModule],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
@@ -13,7 +15,10 @@ export class TaskListComponent implements OnInit{
 
   constructor(private taskService: TaskService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.taskService.getTasks().subscribe(data => {
+      this.tasks = data;
+    });
     this.loadTasks();
   }
 
